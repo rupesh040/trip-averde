@@ -1,69 +1,79 @@
-import Image from "next/image";
+import React from "react";
+import content from "@/content";
+
+// Shared Components
+import TourTopbar1 from "@/components/shared/TourTopbar1";
+import TourHeader1 from "@/components/shared/TourHeader1";
+import TourFooter1 from "@/components/shared/TourFooter1";
+
+// Home Page Components
+import TourBanner1 from "@/components/home/TourBanner1";
+import TourAbout1 from "@/components/home/TourAbout1";
+import TourServices1 from "@/components/home/TourServices1";
+import TourPopularTours1 from "@/components/home/TourPopularTours1";
+import TourStats1 from "@/components/home/TourStats1";
+import TourTopDestinations1 from "@/components/home/TourTopDestinations1";
+import TourGallery1 from "@/components/home/TourGallery1";
+import TourWhyChooseUs1 from "@/components/home/TourWhyChooseUs1";
+import TourTestimonial1 from "@/components/home/TourTestimonial1";
+import TourContact1 from "@/components/home/TourContact1";
+
+function renderVariant<Data>(
+  section: { variants: Record<string, Data> } | undefined,
+  Component: React.ComponentType<{ data: Data }>,
+) {
+  return function renderSection(variant: string, key: string) {
+    const data = section?.variants[variant];
+    return data ? <Component key={key} data={data} /> : null;
+  };
+}
+
+const sections = content.Tour.sections;
+const componentRegistry: Record<
+  string,
+  Record<string, (variant: string, key: string) => React.ReactNode>
+> = {
+  Banner: { TourBanner1: renderVariant(sections.Banner, TourBanner1) },
+  About: { TourAbout1: renderVariant(sections.About, TourAbout1) },
+  Services: { TourServices1: renderVariant(sections.Services, TourServices1) },
+  PopularTours: { TourPopularTours1: renderVariant(sections.PopularTours, TourPopularTours1) },
+  CompanyStatistics: { TourStats1: renderVariant(sections.CompanyStatistics, TourStats1) },
+  TopDestinations: { TourTopDestinations1: renderVariant(sections.TopDestinations, TourTopDestinations1) },
+  Gallery: { TourGallery1: renderVariant(sections.Gallery, TourGallery1) },
+  WhyChooseUs: { TourWhyChooseUs1: renderVariant(sections.WhyChooseUs, TourWhyChooseUs1) },
+  Testimonial: { TourTestimonial1: renderVariant(sections.Testimonial, TourTestimonial1) },
+  Contact: { TourContact1: renderVariant(sections.Contact, TourContact1) },
+};
 
 export default function Home() {
+  const templateConfig = content.Tour.templateComponents["template-1"];
+  const shared = templateConfig.shared;
+  const homeComponents = templateConfig.pages.home.components;
+
+  // Shared Header/Footer variant data
+  const topbarData = shared.Topbar
+    ? sections.Topbar?.variants[shared.Topbar]
+    : undefined;
+  const headerData = sections.Header?.variants[shared.Header];
+  const footerData = sections.Footer?.variants[shared.Footer];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <div className="flex flex-col min-h-screen bg-white text-gray-900">
+      {/* Topbar */}
+      {topbarData && <TourTopbar1 data={topbarData} />}
+
+      {/* Header / Navbar */}
+      {headerData && <TourHeader1 data={headerData} />}
+
+      {/* Main Content Area: dynamically rendered from content.json components list */}
+      <main className="flex-1">
+        {homeComponents.map(({ key, component }, index) =>
+          componentRegistry[key]?.[component]?.(component, `${key}-${index}`),
+        )}
       </main>
+
+      {/* Footer */}
+      {footerData && <TourFooter1 data={footerData} />}
     </div>
   );
 }

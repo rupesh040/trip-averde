@@ -1,0 +1,910 @@
+{
+  "Tour": {
+    "templateComponents": {
+      "template-1": {
+        "shared": {
+          "Header": "TourHeader1",
+          "Footer": "TourFooter1"
+        },
+        "pages": {
+          "home": {
+            "components": [
+              {
+                "key": "Banner",
+                "component": "TourBanner1"
+              },
+              {
+                "key": "About",
+                "component": "TourAbout1"
+              },
+              {
+                "key": "Services",
+                "component": "TourServices1"
+              },
+              {
+                "key": "PopularTours",
+                "component": "TourPopularTours1"
+              },
+              {
+                "key": "CompanyStatistics",
+                "component": "TourStats1"
+              },
+              {
+                "key": "TopDestinations",
+                "component": "TourTopDestinations1"
+              },
+              {
+                "key": "Gallery",
+                "component": "TourGallery1"
+              },
+              {
+                "key": "WhyChooseUs",
+                "component": "TourWhyChooseUs1"
+              },
+              {
+                "key": "Testimonial",
+                "component": "TourTestimonial1"
+              },
+              {
+                "key": "Contact",
+                "component": "TourContact1"
+              }
+            ]
+          },
+          "about-us": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "About",
+                "component": "TourAbout1"
+              }
+            ]
+          },
+          "awards": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "Awards",
+                "component": "TourAwards1"
+              }
+            ]
+          },
+          "blog": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "BlogListing",
+                "component": "TourBlogPage1"
+              }
+            ]
+          },
+          "blog-detail": {
+            "expand": "items",
+            "components": [
+              {
+                "key": "BlogDetail",
+                "component": "TourBlogDetail1"
+              }
+            ]
+          },
+          "contact": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "ContactDetails",
+                "component": "TourContact1"
+              }
+            ]
+          },
+          "destinations": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "DestinationsListing",
+                "component": "TourTopDestinationsListing1"
+              }
+            ]
+          },
+          "faq": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "FAQ",
+                "component": "TourFAQ1"
+              }
+            ]
+          },
+          "gallery": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "Gallery",
+                "component": "TourGallery1"
+              }
+            ]
+          },
+          "mission-vision": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "MissionVision",
+                "component": "TourMissionVision1"
+              }
+            ]
+          },
+          "our-team": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "Team",
+                "component": "TourTeam1"
+              }
+            ]
+          },
+          "team-detail": {
+            "expand": "items",
+            "components": [
+              {
+                "key": "TeamDetail",
+                "component": "TourTeamDetail1"
+              }
+            ]
+          },
+          "packages": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "TourPackages",
+                "component": "TourPackagesPage1"
+              }
+            ]
+          },
+          "package-detail": {
+            "expand": "items",
+            "components": [
+              {
+                "key": "PackageDetail",
+                "component": "TourPackageDetail1"
+              }
+            ]
+          },
+          "partners": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "Partners",
+                "component": "TourPartners1"
+              }
+            ]
+          },
+          "privacy-policy": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "LegalContent",
+                "component": "TourPrivacyPolicy1"
+              }
+            ]
+          },
+          "services": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "ServicesListing",
+                "component": "TourServicesPage1"
+              }
+            ]
+          },
+          "service-detail": {
+            "expand": "items",
+            "components": [
+              {
+                "key": "ServiceDetail",
+                "component": "TourServiceDetail1"
+              }
+            ]
+          },
+          "sitemap": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "SitemapLinks",
+                "component": "TourSitemap1"
+              }
+            ]
+          },
+          "testimonials": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "Testimonial",
+                "component": "TourTestimonial1"
+              }
+            ]
+          },
+          "why-choose-us": {
+            "components": [
+              {
+                "key": "PageBanner",
+                "component": "TourPageBanner1"
+              },
+              {
+                "key": "WhyChooseUs",
+                "component": "TourWhyChooseUs1"
+              }
+            ]
+          },
+          "not-found": {
+            "components": [
+              {
+                "key": "NotFound",
+                "component": "TourNotFound1"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "sections": {
+      "Topbar": {
+        "variants": {
+          "TourTopbar1": {
+            "location": "Explore the World with TripAverde",
+            "timing": "Mon - Sat : 09:00 AM - 07:00 PM",
+            "phone": "+1 000-000-000",
+            "email": "info@xyz.com",
+            "social": [
+              {
+                "name": "Facebook",
+                "icon": "facebook",
+                "href": "https://www.facebook.com/"
+              },
+              {
+                "name": "Instagram",
+                "icon": "instagram",
+                "href": "https://www.instagram.com/"
+              },
+              {
+                "name": "Twitter",
+                "icon": "twitter",
+                "href": "https://x.com/"
+              },
+              {
+                "name": "LinkedIn",
+                "icon": "linkedin",
+                "href": "https://www.linkedin.com/"
+              }
+            ]
+          }
+        }
+      },
+      "Header": {
+        "variants": {
+          "TourHeader1": {
+            "logo": "/banner/tripaverde-logo.webp",
+            "brandName": "TripAverde",
+            "links": [
+              {
+                "name": "Home",
+                "href": "#home",
+                "active": true
+              },
+              {
+                "name": "About Us",
+                "href": "#about",
+                "hasDropdown": false
+              },
+              {
+                "name": "Services",
+                "href": "#services",
+                "hasDropdown": false
+              },
+              {
+                "name": "Tour Packages",
+                "href": "#tours",
+                "hasDropdown": true,
+                "children": [
+                  {
+                    "name": "Maldives Tour",
+                    "href": "#tour-maldives"
+                  },
+                  {
+                    "name": "Italy Tour",
+                    "href": "#tour-italy"
+                  },
+                  {
+                    "name": "France Tour",
+                    "href": "#tour-france"
+                  },
+                  {
+                    "name": "Greece Tour",
+                    "href": "#tour-greece"
+                  },
+                  {
+                    "name": "Canada Tour",
+                    "href": "#tour-canada"
+                  }
+                ]
+              },
+              {
+                "name": "Destinations",
+                "href": "#destinations",
+                "hasDropdown": true,
+                "children": [
+                  {
+                    "name": "Maldives",
+                    "href": "#destination-maldives"
+                  },
+                  {
+                    "name": "Canada",
+                    "href": "#destination-canada"
+                  },
+                  {
+                    "name": "Italy",
+                    "href": "#destination-italy"
+                  },
+                  {
+                    "name": "Greece",
+                    "href": "#destination-greece"
+                  },
+                  {
+                    "name": "France",
+                    "href": "#destination-france"
+                  }
+                ]
+              },
+              {
+                "name": "Gallery",
+                "href": "#gallery",
+                "hasDropdown": false
+              },
+              {
+                "name": "Contact Us",
+                "href": "#contact",
+                "hasDropdown": false
+              }
+            ],
+            "phone": "+1 000-000-000"
+          }
+        }
+      },
+      "Banner": {
+        "variants": {
+          "TourBanner1": {
+            "banners": [
+              "/banner/hero-banner.png"
+            ],
+            "bottomOverlay": "",
+            "eyebrow": "DISCOVER EXTRAORDINARY",
+            "cursiveText": "DISCOVER EXTRAORDINARY",
+            "heading": "Explore Amazing Asia",
+            "headingPart1": "Explore",
+            "headingPart2": "Amazing",
+            "headingPart3": "Asia",
+            "description": "Uncover timeless heritage, vibrant cultures, and breathtaking destinations across Asia."
+          }
+        }
+      },
+      "About": {
+        "variants": {
+          "TourAbout1": {
+            "cursiveText": "ABOUT US",
+            "headingPart1": "Your Trusted",
+            "headingPart2": "Travel Partner",
+            "headingPart3": "",
+            "description": "We are a passionate travel company dedicated to creating unforgettable journeys. From popular getaways to customized holiday packages, we make travel simple, safe and truly memorable.",
+            "features": [
+              {
+                "title": "Top Destinations",
+                "description": "",
+                "icon": "MapPin"
+              },
+              {
+                "title": "Handpicked Packages",
+                "description": "",
+                "icon": "Suitcase"
+              },
+              {
+                "title": "Safe & Reliable Travel",
+                "description": "",
+                "icon": "ShieldCheck"
+              },
+              {
+                "title": "Customer First",
+                "description": "",
+                "icon": "Users"
+              }
+            ],
+            "buttonText": "",
+            "mainImage": "/banner/about-framed.webp"
+          }
+        }
+      },
+      "Services": {
+        "variants": {
+          "TourServices1": {
+            "cursiveText": "OUR SERVICES",
+            "headingPart1": "Complete Travel Services",
+            "headingPart2": "for Memorable Journeys",
+            "description": "A wide range of travel solutions designed to make your trip easy, comfortable and truly unforgettable.",
+            "sideImage": "/banner/london.webp",
+            "items": [
+              {
+                "icon": "Plane",
+                "title": "Flight Booking",
+                "description": "Find and book the best flights at great fares.",
+                "linkText": "Learn More",
+                "href": "#contact"
+              },
+              {
+                "icon": "Bed",
+                "title": "Hotel Booking",
+                "description": "Book comfortable stays at top-rated hotels.",
+                "linkText": "Learn More",
+                "href": "#contact"
+              },
+              {
+                "icon": "Bus",
+                "title": "Tour Packages",
+                "description": "Explore curated packages for domestic & international trips.",
+                "linkText": "Learn More",
+                "href": "#tours"
+              },
+              {
+                "icon": "Palmtree",
+                "title": "Holiday Packages",
+                "description": "Enjoy value-packed vacations to your favourite destinations.",
+                "linkText": "Learn More",
+                "href": "#tours"
+              },
+              {
+                "icon": "Camera",
+                "title": "Travel Guide",
+                "description": "Get expert travel tips and destination recommendations.",
+                "linkText": "Learn More",
+                "href": "#contact"
+              },
+              {
+                "icon": "Globe",
+                "title": "Visa Assistance",
+                "description": "Hassle-free visa support for a smooth and easy journey.",
+                "linkText": "Learn More",
+                "href": "#contact"
+              }
+            ]
+          }
+        }
+      },
+      "PopularTours": {
+        "variants": {
+          "TourPopularTours1": {
+            "cursiveText": "Choose Your Next Journey",
+            "headingPart1": "Popular",
+            "headingPart2": "Tours",
+            "description": "Explore our most-loved tours, from stunning beaches to iconic cities, and create memories that last a lifetime.",
+            "items": [
+              {
+                "title": "Maldives Tour",
+                "image": "/banner/tour-maldives-photo.webp",
+                "price": "$ 1,299 USD",
+                "originalPrice": "$1,479 USD",
+                "discount": "12% OFF",
+                "rating": "5.0 (320)",
+                "duration": "5 Nights - 6 Days",
+                "href": "#contact"
+              },
+              {
+                "title": "Italy Tour",
+                "image": "/banner/tour-italy-photo.webp",
+                "price": "$ 1,499 USD",
+                "originalPrice": "$1,699 USD",
+                "discount": "10% OFF",
+                "rating": "4.9 (280)",
+                "duration": "7 Nights - 8 Days",
+                "href": "#contact"
+              },
+              {
+                "title": "France Tour",
+                "image": "/banner/tour-france-photo.webp",
+                "price": "$ 1,350 USD",
+                "originalPrice": "$1,550 USD",
+                "discount": "15% OFF",
+                "rating": "4.8 (215)",
+                "duration": "6 Nights - 7 Days",
+                "href": "#contact"
+              },
+              {
+                "title": "Greece Tour",
+                "image": "/banner/tour-greece-photo.webp",
+                "price": "$ 1,199 USD",
+                "originalPrice": "$1,399 USD",
+                "discount": "14% OFF",
+                "rating": "5.0 (310)",
+                "duration": "6 Nights - 7 Days",
+                "href": "#contact"
+              },
+              {
+                "title": "Canada Tour",
+                "image": "/banner/tour-canada-photo.webp",
+                "price": "$ 1,599 USD",
+                "originalPrice": "$1,799 USD",
+                "discount": "11% OFF",
+                "rating": "4.9 (190)",
+                "duration": "7 Nights - 8 Days",
+                "href": "#contact"
+              }
+            ]
+          }
+        }
+      },
+      "CompanyStatistics": {
+        "variants": {
+          "TourStats1": {
+            "cursiveText": "Our Milestones",
+            "headingPart1": "Numbers That",
+            "headingPart2": "Inspire Trust",
+            "headingPart3": "",
+            "description": "From dream destinations to happy travelers, our numbers speak of reliability and world-class care.",
+            "backgroundImage": "/banner/resort-stats.webp",
+            "stats": [
+              {
+                "number": 280,
+                "suffix": "",
+                "label": "Flight Booking",
+                "icon": "Plane"
+              },
+              {
+                "number": 117,
+                "suffix": "",
+                "label": "Amazing Tour",
+                "icon": "Building2"
+              },
+              {
+                "number": 47,
+                "suffix": "",
+                "label": "Cruises Booking",
+                "icon": "Ship"
+              },
+              {
+                "number": 47,
+                "suffix": "",
+                "label": "Ticket Booking",
+                "icon": "Ticket"
+              }
+            ]
+          }
+        }
+      },
+      "TopDestinations": {
+        "variants": {
+          "TourTopDestinations1": {
+            "cursiveText": "Top Destinations",
+            "headingPart1": "Popular",
+            "headingPart2": "Destinations",
+            "description": "Discover the world's most loved destinations and plan your next unforgettable journey.",
+            "items": [
+              {
+                "name": "Maldives",
+                "subtitle": "Crystal Clear Waters & Overwater Villas",
+                "image": "/banner/destination-maldives.webp",
+                "href": "#contact"
+              },
+              {
+                "name": "Canada",
+                "subtitle": "Rocky Mountains & Glacial Lakes",
+                "image": "/banner/destination-canada.webp",
+                "href": "#contact"
+              },
+              {
+                "name": "Italy",
+                "subtitle": "Historic Canals & Venetian Charm",
+                "image": "/banner/destination-italy.webp",
+                "href": "#contact"
+              },
+              {
+                "name": "Greece",
+                "subtitle": "Whitewashed Villages & Aegean Views",
+                "image": "/banner/gallery-greece.webp",
+                "href": "#contact"
+              },
+              {
+                "name": "France",
+                "subtitle": "Parisian Landmarks & River Views",
+                "image": "/banner/tour-france-photo.webp",
+                "href": "#contact"
+              }
+            ]
+          }
+        }
+      },
+      "Gallery": {
+        "variants": {
+          "TourGallery1": {
+            "cursiveText": "Gallery",
+            "headingPart1": "Explore Our",
+            "headingPart2": "Travel Gallery",
+            "description": "A collection of beautiful moments, scenic views, and unforgettable experiences from our tours.",
+            "initialCount": 6,
+            "viewMore": "View More",
+            "viewLess": "View Less",
+            "items": [
+              {
+                "id": "thailand-boat",
+                "label": "Thailand",
+                "title": "Phuket Coastal Lagoon",
+                "subtitle": "Andaman Bay, Thailand",
+                "image": "/banner/gallery-thailand.webp"
+              },
+              {
+                "id": "sunrise-mountain",
+                "label": "Sunrise Hills",
+                "title": "Golden Sunrise Panorama",
+                "subtitle": "Mountain Highlands",
+                "image": "/banner/gallery-sunrise.webp"
+              },
+              {
+                "id": "santorini-dome",
+                "label": "Greece",
+                "title": "Santorini Blue Dome",
+                "subtitle": "Aegean Sea, Greece",
+                "image": "/banner/gallery-greece.webp"
+              },
+              {
+                "id": "backpacker-traveler",
+                "label": "Adventure",
+                "title": "Mountain Ridge Explorer",
+                "subtitle": "Banff Alpine Ridge",
+                "image": "/banner/gallery-traveler.webp"
+              },
+              {
+                "id": "tropical-beach",
+                "label": "Tropical Beach",
+                "title": "White Sand Palms",
+                "subtitle": "Maldives Atoll",
+                "image": "/banner/gallery-beach.webp"
+              },
+              {
+                "id": "desert-fortress",
+                "label": "Heritage",
+                "title": "Desert Citadel",
+                "subtitle": "Historic Palace Fortress",
+                "image": "/banner/gallery-fort.webp"
+              }
+            ]
+          }
+        }
+      },
+      "WhyChooseUs": {
+        "variants": {
+          "TourWhyChooseUs1": {
+            "cursiveText": "Plan Your Journey",
+            "headingPart1": "Plan Your Next",
+            "headingPart2": "Adventure With Us",
+            "description": "Explore stunning destinations, exciting tour packages, and unforgettable travel experiences.",
+            "image1": "/banner/adventure.webp"
+          }
+        }
+      },
+      "Testimonial": {
+        "variants": {
+          "TourTestimonial1": {
+            "cursiveText": "Testimonials",
+            "headingPart1": "Travelers",
+            "headingPart2": "Reviews",
+            "description": "Hear from our happy travelers about their unforgettable journeys and experiences with TripAverde.",
+            "phone": "+1 000-000-000",
+            "email": "info@xyz.com",
+            "galleryImages": [
+              "/banner/review-beach.webp",
+              "/banner/review-mountains.webp"
+            ],
+            "items": [
+              {
+                "image": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=400&auto=format&fit=crop",
+                "name": "Ritu Sharma",
+                "title": "Happy Traveler",
+                "quote": "Our trip was absolutely amazing! TripAverde took care of every detail, from hotels to local experiences. The customer service was top notch and made us feel secure throughout.",
+                "rating": 5
+              },
+              {
+                "image": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=400&auto=format&fit=crop",
+                "name": "Marcus Vance",
+                "title": "Adventure Seeker",
+                "quote": "The personalized itinerary for our European tour exceeded all expectations. Flawless transfers and truly exceptional hotel recommendations. Can't wait for our next trip!",
+                "rating": 5
+              },
+              {
+                "image": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=400&auto=format&fit=crop",
+                "name": "Elena Rostova",
+                "title": "Solo Explorer",
+                "quote": "Booking with TripAverde gave me the peace of mind I needed as a solo traveler. 24/7 support was always responsive and caring. Highest recommendation!",
+                "rating": 5
+              }
+            ]
+          }
+        }
+      },
+      "Contact": {
+        "variants": {
+          "TourContact1": {
+            "cursiveText": "Contact Us",
+            "headingPart1": "Get in Touch",
+            "headingPart2": "With Us",
+            "description": "Have questions about our tours, destinations, or travel plans? We're here to help you plan your next unforgettable journey.",
+            "phone": "+1 000-000-000",
+            "email": "info@xyz.com",
+            "address": "2436 Main Street, Springfield, IL 62704, United States",
+            "image": "/banner/contact-coast.webp",
+            "formTitle": "Send Us a Message",
+            "buttonText": "Send Message"
+          }
+        }
+      },
+      "Footer": {
+        "variants": {
+          "TourFooter1": {
+            "logo": "/banner/tripaverde-logo-light.webp",
+            "brandName": "TripAverde",
+            "description": "Your trusted travel partner for unforgettable journeys, handpicked destinations, and customized holiday experiences across the world.",
+            "cursiveText": "Explore Dream Discover",
+            "quickLinks": [
+              {
+                "name": "Home",
+                "href": "#home"
+              },
+              {
+                "name": "About Us",
+                "href": "#about"
+              },
+              {
+                "name": "Services",
+                "href": "#services"
+              },
+              {
+                "name": "Tour Packages",
+                "href": "#tours"
+              },
+              {
+                "name": "Destinations",
+                "href": "#destinations"
+              },
+              {
+                "name": "Gallery",
+                "href": "#gallery"
+              },
+              {
+                "name": "Contact Us",
+                "href": "#contact"
+              }
+            ],
+            "services": [
+              {
+                "name": "Flight Booking",
+                "href": "#contact"
+              },
+              {
+                "name": "Hotel Booking",
+                "href": "#contact"
+              },
+              {
+                "name": "Tour Packages",
+                "href": "#tours"
+              },
+              {
+                "name": "Holiday Packages",
+                "href": "#tours"
+              },
+              {
+                "name": "Travel Guide",
+                "href": "#contact"
+              },
+              {
+                "name": "Visa Assistance",
+                "href": "#contact"
+              }
+            ],
+            "destinations": [
+              {
+                "name": "Maldives",
+                "href": "#destinations"
+              },
+              {
+                "name": "Canada",
+                "href": "#destinations"
+              },
+              {
+                "name": "Italy",
+                "href": "#destinations"
+              },
+              {
+                "name": "France",
+                "href": "#destinations"
+              },
+              {
+                "name": "Greece",
+                "href": "#destinations"
+              }
+            ],
+            "social": [
+              {
+                "name": "Facebook",
+                "icon": "facebook",
+                "href": "https://www.facebook.com/"
+              },
+              {
+                "name": "Instagram",
+                "icon": "instagram",
+                "href": "https://www.instagram.com/"
+              },
+              {
+                "name": "LinkedIn",
+                "icon": "linkedin",
+                "href": "https://www.linkedin.com/"
+              },
+              {
+                "name": "YouTube",
+                "icon": "youtube",
+                "href": "https://www.youtube.com/"
+              }
+            ],
+            "contact": {
+              "phone": "+1 000-000-000",
+              "timing": "",
+              "email": "info@xyz.com",
+              "address": "2436 Main Street, Springfield, IL 62704, United States"
+            },
+            "bottomBar": {
+              "copyright": "© 2026 All Rights Reserved. Powered by Lestow"
+            },
+            "backgroundImage": "/banner/footer-mountains.webp"
+          }
+        }
+      }
+    }
+  }
+}
