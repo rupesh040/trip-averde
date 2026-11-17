@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { ChevronDown, Menu, PhoneCall, X } from "lucide-react";
+import { Menu, PhoneCall, X } from "lucide-react";
 import type { HeaderData } from "@/type";
 import Logo from "./Logo";
 
@@ -12,7 +12,6 @@ interface TourHeader1Props {
 export default function TourHeader1({ data }: TourHeader1Props) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeHref, setActiveHref] = useState(data.links.find((link) => link.active)?.href);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const sectionLinks = data.links.filter((link) => link.href.startsWith("#"));
@@ -21,12 +20,7 @@ export default function TourHeader1({ data }: TourHeader1Props) {
       .filter((section): section is HTMLElement => section !== null);
 
     function setActiveFromHash() {
-      const matchingLink = data.links.find(
-        (link) =>
-          link.href === window.location.hash ||
-          link.children?.some((child) => child.href === window.location.hash),
-      );
-
+      const matchingLink = data.links.find((link) => link.href === window.location.hash);
       if (matchingLink) {
         setActiveHref(matchingLink.href);
       }
@@ -55,27 +49,21 @@ export default function TourHeader1({ data }: TourHeader1Props) {
     };
   }, [data.links]);
 
-  function followLink(parentHref: string, targetHref?: string) {
-    setActiveHref(parentHref);
-    setOpenDropdown(null);
+  function followLink(href: string) {
+    setActiveHref(href);
     setMobileMenuOpen(false);
 
-    const destination = targetHref || parentHref;
-    if (destination.startsWith("#")) {
-      const element = document.getElementById(destination.slice(1));
+    if (href.startsWith("#")) {
+      const element = document.getElementById(href.slice(1));
       if (element) {
         element.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }
   }
 
-  function toggleDropdown(href: string) {
-    setOpenDropdown((current) => current === href ? null : href);
-  }
-
   return (
     <header className="sticky top-0 z-50 bg-white text-(--tour-green) shadow-[0_1px_0_#0b4d3b14]">
-      <div className="mx-auto flex min-h-[68px] max-w-[1440px] items-center gap-5 px-[clamp(1rem,2.65vw,2.5rem)] lg:min-h-[clamp(72px,6.6vw,92px)]">
+      <div className="mx-auto flex min-h-[68px] max-w-[1440px] items-center justify-between gap-6 px-[clamp(1rem,2.65vw,2.5rem)] lg:min-h-[clamp(72px,6.6vw,92px)]">
         <a
           href="#home"
           onClick={(e) => {
@@ -95,7 +83,6 @@ export default function TourHeader1({ data }: TourHeader1Props) {
           aria-controls="trip-navigation"
           onClick={() => {
             setMobileMenuOpen(!mobileMenuOpen);
-            setOpenDropdown(null);
           }}
           className="ml-auto rounded-lg p-2 hover:bg-emerald-50 lg:hidden"
         >
@@ -105,30 +92,17 @@ export default function TourHeader1({ data }: TourHeader1Props) {
         <nav
           id="trip-navigation"
           aria-label="Main navigation"
-          className={`${mobileMenuOpen ? "flex" : "hidden"} absolute inset-x-0 top-full max-h-[calc(100dvh-68px)] flex-col overflow-auto border-t border-emerald-950/10 bg-white px-4 py-3 shadow-lg lg:static lg:ml-[clamp(1.25rem,2.4vw,2rem)] lg:flex lg:max-h-none lg:flex-1 lg:flex-row lg:items-center lg:justify-between lg:gap-2 lg:overflow-visible lg:border-0 lg:p-0 lg:shadow-none`}
+          className={`${mobileMenuOpen ? "flex" : "hidden"} absolute inset-x-0 top-full max-h-[calc(100dvh-68px)] flex-col overflow-auto border-t border-emerald-950/10 bg-white px-4 py-3 shadow-lg lg:static lg:flex lg:max-h-none lg:flex-row lg:items-center lg:gap-1.5 xl:gap-3 lg:overflow-visible lg:border-0 lg:p-0 lg:shadow-none`}
         >
-          {data.links.map((link, index) => {
+          {data.links.map((link) => {
             const active = activeHref === link.href;
-            const expanded = openDropdown === link.href;
-            const dropdownId = `trip-nav-options-${index}`;
 
             return (
               <div
                 key={link.href}
-                className="relative border-b border-emerald-950/8 last:border-0 lg:border-0"
-                onBlur={(event) => {
-                  if (expanded && !event.currentTarget.contains(event.relatedTarget)) {
-                    setOpenDropdown(null);
-                  }
-                }}
-                onKeyDown={(event) => {
-                  if (expanded && event.key === "Escape") {
-                    event.currentTarget.querySelector("button")?.focus();
-                    setOpenDropdown(null);
-                  }
-                }}
+                className="border-b border-emerald-950/8 last:border-0 lg:border-0"
               >
-                <div className={`flex items-center justify-between rounded-[10px] transition-colors ${active ? "bg-(--tour-green) text-white" : "hover:bg-emerald-50"}`}>
+                <div className={`rounded-[10px] transition-colors ${active ? "bg-(--tour-green) text-white" : "hover:bg-emerald-50"}`}>
                   <a
                     href={link.href}
                     aria-current={active ? "location" : undefined}
@@ -137,50 +111,15 @@ export default function TourHeader1({ data }: TourHeader1Props) {
                       followLink(link.href);
                       window.history.pushState(null, "", link.href);
                     }}
-                    className={`flex-1 px-3 py-2.5 text-sm font-bold whitespace-nowrap lg:py-1.5 lg:text-[clamp(.83rem,1.27vw,1.06rem)] ${link.hasDropdown && link.children?.length ? "lg:pr-0.5" : ""}`}
+                    className="block px-3 py-2.5 text-sm font-bold whitespace-nowrap lg:py-1.5 lg:text-[clamp(.83rem,1.27vw,1.06rem)]"
                   >
                     {link.name}
                   </a>
-                  {link.hasDropdown && !!link.children?.length && (
-                    <button
-                      type="button"
-                      aria-label={`${expanded ? "Hide" : "Show"} ${link.name.toLowerCase()} links`}
-                      aria-expanded={expanded}
-                      aria-controls={dropdownId}
-                      onClick={() => toggleDropdown(link.href)}
-                      className="grid size-10 shrink-0 cursor-pointer place-items-center rounded-lg lg:h-9 lg:w-7"
-                    >
-                    </button>
-                  )}
                 </div>
-                {link.hasDropdown && !!link.children?.length && (
-                  <ul
-                    id={dropdownId}
-                    hidden={!expanded}
-                    className="space-y-0.5 py-1 pl-5 lg:absolute lg:top-full lg:left-0 lg:min-w-48 lg:rounded-xl lg:border lg:border-emerald-950/10 lg:bg-white lg:p-1.5 lg:shadow-xl lg:z-50"
-                  >
-                    {link.children.map((child) => (
-                      <li key={child.name}>
-                        <a
-                          href={child.href}
-                          onClick={(e) => {
-                            e.preventDefault();
-                            followLink(link.href, child.href);
-                            window.history.pushState(null, "", child.href);
-                          }}
-                          className="block rounded-lg px-3 py-2 text-sm font-semibold text-(--tour-green) transition-colors hover:bg-emerald-50 hover:text-(--tour-deep)"
-                        >
-                          {child.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                )}
               </div>
             );
           })}
 
-          <span aria-hidden="true" className="hidden h-7 w-px shrink-0 bg-(--tour-green)/65 lg:block" />
           {data.button && (
             <a
               href="#contact"
