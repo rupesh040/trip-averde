@@ -14,28 +14,32 @@ export default function TourWhyChooseUs1({ data }: TourWhyChooseUs1Props) {
   return (
     <section
       id="why-choose-us"
-      className="relative isolate grid scroll-mt-24 overflow-hidden bg-[linear-gradient(90deg,#023128_0%,#05493d_50%,#0c5c4e_100%)] text-white shadow-2xl md:min-h-[clamp(300px,33.5vw,520px)] md:items-center"
+      className="relative isolate grid scroll-mt-24 overflow-hidden bg-[#022c23] text-white shadow-2xl md:min-h-[clamp(340px,36vw,540px)] md:items-center"
     >
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_85%_25%,rgba(16,185,129,0.22)_0%,transparent_60%),radial-gradient(circle_at_15%_80%,rgba(6,77,72,0.6)_0%,transparent_50%)]"
-      />
-
       {data.image1 && (
-        <div className="relative aspect-[4/3] overflow-hidden md:absolute md:inset-y-0 md:left-0 md:-z-10 md:aspect-auto md:w-[48%]">
+        <div className="absolute inset-0 -z-20">
           <Image
             src={data.image1}
             alt=""
             fill
-            sizes="(min-width: 768px) 48vw, 100vw"
-            className="object-cover object-left-bottom"
+            sizes="100vw"
+            className="object-cover object-[25%_center] md:object-[left_center]"
           />
-          <div className="absolute inset-0 bg-[linear-gradient(0deg,#023128_0%,transparent_65%)] md:bg-[linear-gradient(90deg,transparent_55%,#02312899_78%,#023128_100%)]" />
         </div>
       )}
 
-      <div className="relative mx-auto flex w-full max-w-[1440px] justify-center px-6 pt-4 pb-10 text-center md:justify-end md:px-[4%] md:py-12">
-        <div className="w-full max-w-[720px] md:w-[58%]">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[linear-gradient(0deg,#022c23_0%,#033d31_55%,rgba(5,78,63,0.5)_75%,transparent_100%)] md:bg-[linear-gradient(270deg,#022c23_0%,#022c23_30%,#033d31_48%,rgba(5,78,63,0.75)_68%,rgba(5,78,63,0.3)_82%,transparent_100%)]"
+      />
+
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(ellipse_at_85%_35%,rgba(16,185,129,0.2)_0%,transparent_55%)]"
+      />
+
+      <div className="relative mx-auto flex w-full max-w-[1440px] justify-center px-6 pt-12 pb-12 text-center md:justify-end md:px-[5%] md:py-16">
+        <div className="w-full max-w-[700px] md:w-[56%]">
           <div aria-hidden="true" className="mb-3 flex items-center justify-center gap-5 md:gap-8">
             <span className="h-[2px] w-11 bg-[#e2ad45] md:w-[4.5rem]" />
             <Send className="size-8 sm:size-10" strokeWidth={1.65} />

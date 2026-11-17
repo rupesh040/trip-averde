@@ -1,12 +1,10 @@
 import React from "react";
 import content from "@/content";
 
-// Shared Components
 import TourTopbar1 from "@/components/shared/TourTopbar1";
 import TourHeader1 from "@/components/shared/TourHeader1";
 import TourFooter1 from "@/components/shared/TourFooter1";
 
-// Home Page Components
 import TourBanner1 from "@/components/home/TourBanner1";
 import TourAbout1 from "@/components/home/TourAbout1";
 import TourServices1 from "@/components/home/TourServices1";
@@ -50,7 +48,6 @@ export default function Home() {
   const shared = templateConfig.shared;
   const homeComponents = templateConfig.pages.home.components;
 
-  // Shared Header/Footer variant data
   const topbarData = shared.Topbar
     ? sections.Topbar?.variants[shared.Topbar]
     : undefined;
@@ -59,20 +56,15 @@ export default function Home() {
 
   return (
     <div className="flex flex-col min-h-screen bg-white text-gray-900">
-      {/* Topbar */}
       {topbarData && <TourTopbar1 data={topbarData} />}
-
-      {/* Header / Navbar */}
       {headerData && <TourHeader1 data={headerData} />}
 
-      {/* Main Content Area: dynamically rendered from content.json components list */}
       <main className="flex-1">
         {homeComponents.map(({ key, component }, index) =>
           componentRegistry[key]?.[component]?.(component, `${key}-${index}`),
         )}
       </main>
 
-      {/* Footer */}
       {footerData && <TourFooter1 data={footerData} />}
     </div>
   );

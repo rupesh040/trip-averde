@@ -26,8 +26,11 @@ function TourCard({ tour, index }: { tour: PopularTourItem; index: number }) {
         className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
       />
       <div className="absolute inset-x-0 bottom-0 h-[55%] bg-linear-to-t from-[#033d32]/95 via-[#034739]/45 to-transparent" />
-      {featured && (
+      {index === 0 && (
         <div className="absolute -bottom-23 -left-[20%] h-40 w-[108%] rotate-12 rounded-[50%] bg-linear-to-b from-[#084e40] to-[#033d32]" />
+      )}
+      {index === 1 && (
+        <div className="absolute inset-0 bg-[linear-gradient(270deg,#033d32_0%,rgba(3,61,50,0.85)_40%,rgba(3,71,57,0.35)_75%,transparent_100%)]" />
       )}
       <h3 className="absolute bottom-4 left-[5%] font-serif text-[clamp(1.6rem,2.7vw,2.55rem)] leading-tight font-bold">
         {tour.title}
