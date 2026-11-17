@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { ChevronLeft, ChevronRight, MapPin } from "lucide-react";
 import type { TopDestinationsData } from "@/type";
 
@@ -61,7 +62,13 @@ export default function TourTopDestinations1({ data }: TourTopDestinations1Props
   return (
     <section id="destinations" aria-labelledby="destinations-title" className="scroll-mt-24 bg-linear-to-b from-[#faf9f5] to-[#f9f9f7] py-[clamp(3.5rem,6.7vw,6rem)]">
       <div className="mx-auto max-w-[1400px] px-[2.5%]">
-        <div className="mb-[clamp(1.75rem,4.3vw,4rem)] px-2 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-[clamp(1.75rem,4.3vw,4rem)] px-2 text-center"
+        >
           <p className="mb-3 inline-flex items-center gap-3 text-xs font-extrabold tracking-[0.2em] text-(--tour-deep) uppercase before:h-0.5 before:w-8 before:bg-(--tour-gold) after:h-0.5 after:w-8 after:bg-(--tour-gold) sm:gap-5 sm:text-[clamp(0.8rem,1.65vw,1.35rem)] sm:before:w-14 sm:after:w-14">
             {data.cursiveText || "Top Destinations"}
           </p>
@@ -72,9 +79,14 @@ export default function TourTopDestinations1({ data }: TourTopDestinations1Props
           <p className="mx-auto mt-2 max-w-5xl text-[clamp(0.9rem,1.65vw,1.45rem)] leading-relaxed text-stone-700">
             {data.description}
           </p>
-        </div>
+        </motion.div>
 
-        <div>
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.75, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+        >
           <div
             id="destinations-track"
             ref={track}
@@ -134,7 +146,7 @@ export default function TourTopDestinations1({ data }: TourTopDestinations1Props
               </button>
             </div>
           )}
-        </div>
+        </motion.div>
 
         {data.items.length > 1 && (
           <div aria-label="Browse destinations" className={`mt-6 flex justify-center sm:mt-7 ${data.items.length < 3 ? "sm:hidden" : ""} ${data.items.length < 4 ? "md:hidden" : ""}`}>

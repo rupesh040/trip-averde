@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { Building2, Compass, House, Plane, Ship, Ticket } from "lucide-react";
 import type { StatisticsData } from "@/type";
 
@@ -57,12 +58,20 @@ export default function TourStats1({ data }: TourStats1Props) {
       )}
 
       <div className="relative mx-auto grid max-w-[min(82vw,72rem)] grid-cols-2 gap-x-3 gap-y-14 sm:gap-x-6 md:grid-cols-4">
-        {data.stats.map((stat) => {
+        {data.stats.map((stat, index) => {
           const Icon = statIcons[stat.icon as keyof typeof statIcons] || Compass;
           const number = stat.isDecimal ? (stat.number * progress).toFixed(1) : Math.round(stat.number * progress);
 
           return (
-            <div key={stat.label} className="relative rounded-[1.35rem] border-b-4 border-[#e0a939] bg-[#fcfaf3] px-1 pt-[clamp(1.8rem,3.8vw,3.6rem)] pb-[clamp(0.7rem,1.6vw,1.4rem)] text-center shadow-md">
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 30, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -6, transition: { duration: 0.2 } }}
+              className="relative rounded-[1.35rem] border-b-4 border-[#e0a939] bg-[#fcfaf3] px-1 pt-[clamp(1.8rem,3.8vw,3.6rem)] pb-[clamp(0.7rem,1.6vw,1.4rem)] text-center shadow-md"
+            >
               <div className="absolute top-0 left-1/2 grid size-[clamp(3.25rem,7.7vw,7rem)] -translate-x-1/2 -translate-y-[54%] place-items-center rounded-full border-[3px] border-[#edc56a] bg-[#076045] text-white">
                 <Icon aria-hidden="true" className="h-[55%] w-[55%]" strokeWidth={1.45} />
               </div>
@@ -72,7 +81,7 @@ export default function TourStats1({ data }: TourStats1Props) {
               </p>
               <p className="mt-1 text-[clamp(0.65rem,1.48vw,1.25rem)] font-semibold text-stone-900">{stat.label}</p>
               <span className="mx-auto mt-[clamp(0.45rem,1.1vw,0.95rem)] block h-1 w-[25%] rounded-full bg-(--tour-gold)" />
-            </div>
+            </motion.div>
           );
         })}
       </div>

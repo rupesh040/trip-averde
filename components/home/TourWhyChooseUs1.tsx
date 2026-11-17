@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ArrowRight, Send } from "lucide-react";
 import type { WhyChooseUsData } from "@/type";
 
@@ -39,7 +42,13 @@ export default function TourWhyChooseUs1({ data }: TourWhyChooseUs1Props) {
       />
 
       <div className="relative mx-auto flex w-full max-w-[1440px] justify-center px-6 pt-12 pb-12 text-center md:justify-end md:px-[5%] md:py-16">
-        <div className="w-full max-w-[700px] md:w-[56%]">
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="w-full max-w-[700px] md:w-[56%]"
+        >
           <div aria-hidden="true" className="mb-3 flex items-center justify-center gap-5 md:gap-8">
             <span className="h-[2px] w-11 bg-[#e2ad45] md:w-[4.5rem]" />
             <Send className="size-8 sm:size-10" strokeWidth={1.65} />
@@ -55,15 +64,18 @@ export default function TourWhyChooseUs1({ data }: TourWhyChooseUs1Props) {
             {data.description}
           </p>
           {data.buttonText && (
-            <a
+            <motion.a
+              whileHover={{ scale: 1.04, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              transition={{ duration: 0.2 }}
               href="#contact"
               className="mt-5 inline-flex items-center gap-2 rounded-md bg-[linear-gradient(90deg,#f5be50_0%,#e4a838_100%)] px-5 py-2.5 text-sm font-bold text-[#023128] shadow-md transition-all hover:bg-[linear-gradient(90deg,#ffffff_0%,#ffffff_100%)] hover:shadow-lg"
             >
               {data.buttonText}
               <ArrowRight className="size-4" aria-hidden="true" />
-            </a>
+            </motion.a>
           )}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

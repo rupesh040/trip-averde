@@ -1,5 +1,8 @@
+"use client";
+
 import type { ReactNode } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { ChevronRight, Clock, Mail, MapPin, Phone } from "lucide-react";
 import type { FooterData } from "@/type";
 import Logo from "./Logo";
@@ -49,7 +52,13 @@ export default function TourFooter1({ data }: TourFooter1Props) {
   return (
     <footer className="relative isolate overflow-hidden bg-[#011712] bg-[linear-gradient(180deg,#0a5c48_0%,#053f32_35%,#022a21_65%,transparent_100%)] pt-10 text-[0.83rem] leading-[1.4] text-white shadow-2xl sm:pt-12">
       <div className="mx-auto max-w-[1400px] px-6 sm:px-[3.5%]">
-        <div className="grid grid-cols-[1.12fr_.88fr] gap-x-5 gap-y-7 pb-5 sm:grid-cols-3 sm:pb-14 lg:grid-cols-[1.28fr_.88fr_.96fr_1.24fr_.83fr] lg:gap-x-[2%] lg:pb-[5.8vw]">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="grid grid-cols-[1.12fr_.88fr] gap-x-5 gap-y-7 pb-5 sm:grid-cols-3 sm:pb-14 lg:grid-cols-[1.28fr_.88fr_.96fr_1.24fr_.83fr] lg:gap-x-[2%] lg:pb-[5.8vw]"
+        >
           <div className="col-span-2 sm:col-span-1">
             <a href="#home" aria-label="TripAverde home" className="inline-flex max-w-full">
               <Logo light src={data.logo} className="max-w-full" />
@@ -88,7 +97,9 @@ export default function TourFooter1({ data }: TourFooter1Props) {
               <ul className="flex flex-wrap gap-1.5 pt-1">
                 {data.social.map((site) => (
                   <li key={site.name}>
-                    <a
+                    <motion.a
+                      whileHover={{ scale: 1.15, y: -2 }}
+                      whileTap={{ scale: 0.95 }}
                       href={site.href}
                       rel="noopener noreferrer"
                       target="_blank"
@@ -96,15 +107,15 @@ export default function TourFooter1({ data }: TourFooter1Props) {
                       className="grid size-7 place-items-center rounded-md bg-white text-[#004638] transition-colors hover:bg-[#f1c45d] sm:size-8"
                     >
                       <SocialIcon name={site.icon || site.name} className="size-[1.1rem]" />
-                    </a>
+                    </motion.a>
                   </li>
                 ))}
               </ul>
             </FooterColumn>
           )}
-        </div>
+        </motion.div>
 
-        <div className="flex flex-wrap items-center justify-center gap-x-6  py-3.5 text-center">
+        <div className="flex flex-wrap items-center justify-center gap-x-6 py-3.5 text-center">
           <p>{bottomBar?.copyright}</p>
           {bottomBar?.links?.map(({ name, href }) => (
             <a key={name} href={href} className="hover:text-[#f1c45d] hover:underline">{name}</a>

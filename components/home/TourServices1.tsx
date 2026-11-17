@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { BedDouble, Bus, Camera, Compass, Globe, Plane, TreePalm } from "lucide-react";
 import type { ServicesData } from "@/type";
 
@@ -25,7 +28,13 @@ export default function TourServices1({ data }: TourServices1Props) {
     <section id="services" className="scroll-mt-24 overflow-hidden bg-white pt-[clamp(2rem,6vw,6rem)] pb-[clamp(3.75rem,8.4vw,7rem)]">
       <div className="mx-auto grid max-w-[1440px] items-center gap-11 px-[clamp(1.25rem,2vw,2rem)] min-[960px]:grid-cols-[3.05fr_2fr] min-[960px]:gap-4">
         <div>
-          <div className="min-[960px]:pl-[3.25vw] min-[1440px]:pl-12">
+          <motion.div
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+            className="min-[960px]:pl-[3.25vw] min-[1440px]:pl-12"
+          >
             <p className="mb-3 flex items-center gap-4 text-[clamp(.8rem,1.65vw,1.4rem)] font-extrabold tracking-[0.15em] text-(--tour-green) uppercase">
               {data.cursiveText || "Our Services"}
               <span aria-hidden="true" className="h-0.5 w-[clamp(2.75rem,5.6vw,5rem)] bg-(--tour-gold)" />
@@ -37,15 +46,22 @@ export default function TourServices1({ data }: TourServices1Props) {
             <p className="mt-3 max-w-[46ch] text-[clamp(.95rem,1.32vw,1.2rem)] leading-[1.5] text-(--foreground)">
               {data.description}
             </p>
-          </div>
+          </motion.div>
 
           <ul className="mt-[clamp(1.3rem,2.2vw,2.1rem)] grid gap-x-2 gap-y-3 min-[570px]:grid-cols-2 min-[760px]:grid-cols-3">
-            {data.items.map((item) => {
+            {data.items.map((item, index) => {
               const Icon = serviceIcons[item.icon as keyof typeof serviceIcons] || Compass;
               const Card = item.href ? "a" : "div";
 
               return (
-                <li key={item.title}>
+                <motion.li
+                  key={item.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                  whileHover={{ y: -4, transition: { duration: 0.2 } }}
+                >
                   <Card
                     href={item.href}
                     className="flex h-full min-h-[clamp(5.75rem,9.5vw,8.8rem)] items-center gap-[clamp(.4rem,.7vw,.8rem)] rounded-[18px] border border-[#eae9e2] bg-[#fcfbf7] py-[clamp(.65rem,1vw,1rem)] pr-2 pl-[clamp(.7rem,1.1vw,1.1rem)] shadow-[0_4px_8px_#102f2020] transition-colors hover:border-(--tour-gold)"
@@ -62,13 +78,19 @@ export default function TourServices1({ data }: TourServices1Props) {
                       </p>
                     </div>
                   </Card>
-                </li>
+                </motion.li>
               );
             })}
           </ul>
         </div>
 
-        <div className="relative isolate mx-auto aspect-square w-[calc(100%-2rem)] max-w-[550px] min-[960px]:mx-0 min-[960px]:ml-3 min-[960px]:w-[calc(100%-1rem)]">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.92 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
+          className="relative isolate mx-auto aspect-square w-[calc(100%-2rem)] max-w-[550px] min-[960px]:mx-0 min-[960px]:ml-3 min-[960px]:w-[calc(100%-1rem)]"
+        >
           <span aria-hidden="true" className="absolute -top-2 -left-3 -z-10 h-2/5 w-1/2 -rotate-[10deg] rounded-[27%_28%_18%_23%] bg-[#0c694b]" />
           <span aria-hidden="true" className="absolute -right-2 -bottom-2 -z-10 h-[38%] w-[58%] -rotate-[8deg] rounded-[28%_19%_27%_19%] bg-[#d9a745]" />
           <div className="relative h-full w-full -rotate-[8deg] overflow-hidden rounded-[20%_11%_18%_13%] border-[clamp(4px,.55vw,8px)] border-white shadow-[0_2px_8px_#12351e33]">
@@ -80,7 +102,7 @@ export default function TourServices1({ data }: TourServices1Props) {
               className="translate-y-[3%] scale-[1.13] rotate-[8deg] object-cover object-top"
             />
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

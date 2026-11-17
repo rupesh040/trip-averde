@@ -4,7 +4,6 @@ import content from "@/content";
 import TourTopbar1 from "@/components/shared/TourTopbar1";
 import TourHeader1 from "@/components/shared/TourHeader1";
 import TourFooter1 from "@/components/shared/TourFooter1";
-
 import TourBanner1 from "@/components/home/TourBanner1";
 import TourAbout1 from "@/components/home/TourAbout1";
 import TourServices1 from "@/components/home/TourServices1";

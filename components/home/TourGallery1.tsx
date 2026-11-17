@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { Camera, Eye, X } from "lucide-react";
 import type { GalleryData, GalleryItem } from "@/type";
 
@@ -32,7 +33,13 @@ export default function TourGallery1({ data }: TourGallery1Props) {
   return (
     <section id="gallery" aria-labelledby="gallery-title" className="scroll-mt-24 bg-white pt-[clamp(2.25rem,3vw,3rem)] pb-[clamp(3.25rem,6.2vw,6rem)]">
       <div className="mx-auto max-w-[1400px] px-[1.75%]">
-        <div className="mb-[clamp(1.45rem,2.55vw,2.5rem)] px-2 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-[clamp(1.45rem,2.55vw,2.5rem)] px-2 text-center"
+        >
           <p className="mb-1.5 inline-flex items-center gap-3 text-xs font-extrabold tracking-[0.21em] text-(--tour-deep) uppercase before:h-0.5 before:w-8 before:bg-(--tour-gold) after:h-0.5 after:w-8 after:bg-(--tour-gold) sm:gap-5 sm:text-base sm:before:w-14 sm:after:w-14">
             <span className="inline-flex items-center gap-1.5">
               <Camera aria-hidden="true" className="size-[1.2em] text-(--tour-gold)" />
@@ -46,13 +53,18 @@ export default function TourGallery1({ data }: TourGallery1Props) {
           <p className="mx-auto mt-1.5 max-w-4xl text-[clamp(0.85rem,1.25vw,1.06rem)] leading-relaxed text-stone-700">
             {data.description}
           </p>
-        </div>
+        </motion.div>
 
         <div className="grid grid-flow-dense auto-rows-[clamp(5.5rem,24vw,10rem)] grid-cols-2 gap-2.5 md:auto-rows-[clamp(6rem,13vw,11.25rem)] md:grid-cols-[1fr_0.97fr_0.87fr_1.02fr] md:gap-3">
           {data.items.map((item, index) => (
-            <button
+            <motion.button
               key={item.id}
               type="button"
+              initial={{ opacity: 0, scale: 0.94 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, amount: 0.2 }}
+              transition={{ duration: 0.55, delay: index * 0.07, ease: [0.22, 1, 0.36, 1] }}
+              whileHover={{ y: -3 }}
               aria-label={`View ${item.title || item.label || "gallery image"}`}
               onClick={() => setSelectedImage(item)}
               className={`group relative cursor-zoom-in overflow-hidden rounded-[0.85rem] bg-stone-100 text-left ${mosaicPlacement[index] || ""}`}
@@ -67,7 +79,7 @@ export default function TourGallery1({ data }: TourGallery1Props) {
               <span className="absolute top-2.5 right-2.5 grid size-8 place-items-center rounded-full bg-black/60 text-white opacity-0 transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100">
                 <Eye aria-hidden="true" className="size-4" />
               </span>
-            </button>
+            </motion.button>
           ))}
         </div>
       </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion, useScroll } from "framer-motion";
 import { Menu, PhoneCall, X } from "lucide-react";
 import type { HeaderData } from "@/type";
 import Logo from "./Logo";
@@ -61,8 +62,19 @@ export default function TourHeader1({ data }: TourHeader1Props) {
     }
   }
 
+  const { scrollYProgress } = useScroll();
+
   return (
-    <header className="sticky top-0 z-50 bg-white text-(--tour-green) shadow-[0_1px_0_#0b4d3b14]">
+    <motion.header
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+      className="sticky top-0 z-50 bg-white text-(--tour-green) shadow-[0_1px_0_#0b4d3b14]"
+    >
+      <motion.div
+        style={{ scaleX: scrollYProgress }}
+        className="fixed top-0 inset-x-0 h-[2.5px] bg-[linear-gradient(90deg,#e6b24b_0%,#bc8125_50%,#0b4d3b_100%)] origin-left z-50 pointer-events-none"
+      />
       <div className="mx-auto flex min-h-[68px] max-w-[1440px] items-center justify-between gap-6 px-[clamp(1rem,2.65vw,2.5rem)] lg:min-h-[clamp(72px,6.6vw,92px)]">
         <a
           href="#home"
@@ -141,6 +153,6 @@ export default function TourHeader1({ data }: TourHeader1Props) {
           )}
         </nav>
       </div>
-    </header>
+    </motion.header>
   );
 }

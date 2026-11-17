@@ -2,6 +2,7 @@
 
 import { useState, type FormEvent } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Mail, MessageSquare, Phone, Send, Tag, UserRound } from "lucide-react";
 import type { ContactData } from "@/type";
 
@@ -50,7 +51,13 @@ export default function TourContact1({ data }: TourContact1Props) {
       )}
 
       <div className="mx-auto grid max-w-[1400px] items-start gap-8 px-6 sm:px-[4%] md:grid-cols-[0.91fr_1.09fr] md:gap-[5%]">
-        <div className="min-w-0 lg:pl-[17%]">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+          className="min-w-0 lg:pl-[17%]"
+        >
           <div className="mb-2 flex items-center gap-3 text-xs font-bold tracking-[0.13em] text-[var(--tour-green)] uppercase sm:text-sm">
             <span className="h-px w-9 bg-[var(--tour-gold)]" aria-hidden="true" />
             {data.cursiveText || "Contact Us"}
@@ -63,10 +70,15 @@ export default function TourContact1({ data }: TourContact1Props) {
           <p className="mt-3 max-w-[32rem] text-sm leading-[1.55] text-[#424a4a] sm:text-base">
             {data.description}
           </p>
+        </motion.div>
 
-        </div>
-
-        <div className="min-w-0 overflow-hidden rounded-[1.35rem] bg-[linear-gradient(135deg,#075743_0%,#043e30_60%,#022c22_100%)] shadow-[0_12px_36px_#022c2240] ring-1 ring-white/10">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="min-w-0 overflow-hidden rounded-[1.35rem] bg-[linear-gradient(135deg,#075743_0%,#043e30_60%,#022c22_100%)] shadow-[0_12px_36px_#022c2240] ring-1 ring-white/10"
+        >
           <h3 className="flex items-center justify-center gap-3 px-4 py-4 text-center text-lg font-extrabold text-white sm:py-[1.15rem] sm:text-[1.35rem]">
             <Send className="size-6 shrink-0 sm:size-7" aria-hidden="true" strokeWidth={1.65} />
             {data.formTitle || "Send Us a Message"}
@@ -90,10 +102,15 @@ export default function TourContact1({ data }: TourContact1Props) {
             </label>
 
             <div className="flex flex-wrap items-center gap-x-4 gap-y-2">
-              <button type="submit" className="inline-flex cursor-pointer items-center gap-2.5 rounded-lg bg-[#996719] px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[var(--tour-green)] sm:px-5 sm:py-3">
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                className="inline-flex cursor-pointer items-center gap-2.5 rounded-lg bg-[#996719] px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[var(--tour-green)] sm:px-5 sm:py-3"
+              >
                 <Send className="size-[1.15rem]" aria-hidden="true" strokeWidth={1.7} />
                 {data.buttonText || "Send Message"}
-              </button>
+              </motion.button>
               <span className="text-xs text-[#5c6662]">Opens your email app.</span>
             </div>
             <div role="status" className={draftLink ? "text-sm text-[var(--tour-green)]" : "sr-only"}>
@@ -105,7 +122,7 @@ export default function TourContact1({ data }: TourContact1Props) {
               )}
             </div>
           </form>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
