@@ -60,7 +60,7 @@ export default function TourTopDestinations1({ data }: TourTopDestinations1Props
   }
 
   return (
-    <section id="destinations" aria-labelledby="destinations-title" className="scroll-mt-24 bg-linear-to-b from-[#faf9f5] to-[#f9f9f7] py-[clamp(3.5rem,6.7vw,6rem)]">
+    <section id="destinations" aria-labelledby="destinations-title" className="scroll-mt-24 bg-linear-to-b from-[#faf9f5] to-[#f9f9f7] pt-[clamp(3.5rem,6.7vw,6rem)] pb-[clamp(1.5rem,3vw,2.5rem)]">
       <div className="mx-auto max-w-[1400px] px-[2.5%]">
         <motion.div
           initial={{ opacity: 0, y: 25 }}

@@ -22,21 +22,53 @@ const featureIcons = {
 export default function TourAbout1({ data }: TourAbout1Props) {
   return (
     <section id="about" className="scroll-mt-24 bg-white pt-[clamp(3.75rem,9vw,8rem)] pb-[clamp(3rem,6vw,6rem)]">
-      <div className="mx-auto grid max-w-[1440px] items-start gap-8 px-[clamp(1.25rem,2vw,2rem)] md:grid-cols-[38%_1fr] md:gap-[clamp(1.5rem,3.75vw,3.5rem)]">
+      <div className="mx-auto grid max-w-[1440px] items-center gap-10 px-[clamp(1.25rem,2vw,2rem)] md:grid-cols-[38%_1fr] md:gap-[clamp(2rem,4vw,4rem)]">
         <motion.div
           initial={{ opacity: 0, x: -40 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          className="relative isolate mx-auto w-full max-w-[360px] min-[480px]:max-w-[390px] md:mx-0 md:max-w-none"
         >
-          <Image
-            src={data.mainImage || "/banner/about-framed.jpg"}
-            width={384}
-            height={524}
-            sizes="(max-width: 767px) 86vw, (max-width: 1440px) 38vw, 530px"
-            alt="A shikara boat on Dal Lake with snow-covered mountains behind it"
-            className="mx-auto h-auto w-full max-w-[360px] md:max-w-none"
-          />
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 150 160"
+            className="pointer-events-none absolute -top-3 -left-3 -z-10 h-[130px] w-[120px] text-(--tour-green) sm:-top-3.5 sm:-left-3.5 sm:h-[150px] sm:w-[140px]"
+            fill="none"
+          >
+            <path
+              d="M140 10 H54 C30 10 10 30 10 54 V150"
+              stroke="currentColor"
+              strokeWidth="19"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 150 95"
+            className="pointer-events-none absolute -right-3 -bottom-3 -z-10 h-[75px] w-[120px] text-(--tour-green) sm:-right-3.5 sm:-bottom-3.5 sm:h-[90px] sm:w-[140px]"
+            fill="none"
+          >
+            <path
+              d="M10 85 H96 C120 85 140 65 140 41 V10"
+              stroke="currentColor"
+              strokeWidth="19"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+
+          <div className="group relative aspect-[384/524] w-full overflow-hidden rounded-[2.35rem] border-[6px] border-white bg-stone-100 shadow-[0_16px_36px_#06433722] sm:rounded-[2.75rem] sm:border-[8px]">
+            <Image
+              src={data.mainImage || "/banner/about-framed.webp"}
+              fill
+              sizes="(max-width: 767px) 88vw, (max-width: 1440px) 38vw, 480px"
+              alt="A shikara boat on Dal Lake with snow-covered mountains behind it"
+              className="object-cover object-center transition-transform duration-700 motion-safe:group-hover:scale-105"
+            />
+          </div>
         </motion.div>
 
         <motion.div

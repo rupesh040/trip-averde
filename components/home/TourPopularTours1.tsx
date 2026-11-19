@@ -9,44 +9,49 @@ interface TourPopularTours1Props {
 }
 
 function TourCard({ tour, index }: { tour: PopularTourItem; index: number }) {
-  const featured = index < 2;
-  const span = index === 0 ? "lg:col-span-7" : index === 1 ? "lg:col-span-5" : "lg:col-span-4";
-  const height = featured ? "lg:h-[clamp(16rem,26.2vw,23.5rem)]" : "lg:h-[clamp(12rem,20vw,18rem)]";
-  const desktopSize = index === 0 ? "54vw" : index === 1 ? "38vw" : "31vw";
+  const isTopRow = index < 2;
+  const colSpan = isTopRow
+    ? "sm:col-span-6"
+    : "sm:col-span-6 lg:col-span-4";
+  const aspect = isTopRow
+    ? "aspect-[16/10] min-h-[220px] sm:min-h-[260px] lg:min-h-[300px]"
+    : "aspect-[4/3] min-h-[200px] sm:min-h-[230px] lg:min-h-[260px]";
   const slug = tour.title.toLowerCase().replace(/ tour$/, "").replace(/\W+/g, "-").replace(/^-|-$/g, "");
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 35, scale: 0.98 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.15 }}
-      transition={{ duration: 0.65, delay: index * 0.1, ease: [0.22, 1, 0.36, 1] }}
+      transition={{ duration: 0.65, delay: index * 0.08, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -6, transition: { duration: 0.25 } }}
-      className={`h-52 sm:h-56 ${span} ${height}`}
+      className={`relative ${colSpan} ${aspect}`}
     >
       <a
         id={`tour-${slug}`}
         href={tour.href || "#contact"}
-        className="group relative isolate block size-full overflow-hidden rounded-[1.35rem] bg-(--tour-deep) text-white shadow-md lg:rounded-[1.6rem]"
+        className="group relative isolate block size-full overflow-hidden rounded-[1.75rem] bg-(--tour-deep) text-white shadow-md transition-shadow duration-300 hover:shadow-xl md:rounded-[2rem]"
       >
         <Image
           src={tour.image}
           alt=""
           fill
-          sizes={`(max-width: 639px) 94vw, (max-width: 1023px) 47vw, ${desktopSize}`}
-          className="object-cover transition-transform duration-500 motion-safe:group-hover:scale-105"
+          sizes={isTopRow ? "(max-width: 767px) 94vw, 50vw" : "(max-width: 639px) 94vw, (max-width: 1023px) 50vw, 33vw"}
+          className="object-cover transition-transform duration-700 motion-safe:group-hover:scale-105"
         />
-        <div className="absolute inset-x-0 bottom-0 h-[55%] bg-linear-to-t from-[#033d32]/95 via-[#034739]/45 to-transparent" />
-        {index === 0 && (
-          <div className="absolute -bottom-23 -left-[20%] h-40 w-[108%] rotate-12 rounded-[50%] bg-linear-to-b from-[#084e40] to-[#033d32]" />
-        )}
-        {index === 1 && (
-          <div className="absolute inset-0 bg-[linear-gradient(270deg,#033d32_0%,rgba(3,61,50,0.85)_40%,rgba(3,71,57,0.35)_75%,transparent_100%)]" />
-        )}
-        <h3 className="absolute bottom-4 left-[5%] font-serif text-[clamp(1.6rem,2.7vw,2.55rem)] leading-tight font-bold">
-          {tour.title}
-          <span className="mt-1.5 block h-1 w-14 rounded-full bg-[#e6b24b] sm:w-16" />
-        </h3>
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(3,61,50,0.15)_40%,rgba(3,61,50,0.75)_75%,#033d32_100%)]"
+        />
+        <div className="absolute inset-x-0 bottom-0 p-5 sm:p-6 lg:p-7">
+          <h3 className="font-serif text-[clamp(1.5rem,2.4vw,2.25rem)] leading-tight font-bold tracking-tight text-white drop-shadow-sm">
+            {tour.title}
+          </h3>
+          <span
+            aria-hidden="true"
+            className="mt-2 block h-1 w-12 rounded-full bg-(--tour-gold) sm:w-14"
+          />
+        </div>
       </a>
     </motion.div>
   );
@@ -77,7 +82,7 @@ export default function TourPopularTours1({ data }: TourPopularTours1Props) {
           </p>
         </motion.div>
 
-        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-12">
+        <div className="grid gap-4 sm:grid-cols-12 lg:gap-6">
           {data.items.map((tour, index) => (
             <TourCard key={tour.title} tour={tour} index={index} />
           ))}

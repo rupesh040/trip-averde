@@ -26,7 +26,7 @@ export default function TourServices1({ data }: TourServices1Props) {
 
   return (
     <section id="services" className="scroll-mt-24 overflow-hidden bg-white pt-[clamp(2rem,6vw,6rem)] pb-[clamp(3.75rem,8.4vw,7rem)]">
-      <div className="mx-auto grid max-w-[1440px] items-center gap-11 px-[clamp(1.25rem,2vw,2rem)] min-[960px]:grid-cols-[3.05fr_2fr] min-[960px]:gap-4">
+      <div className="mx-auto grid max-w-[1440px] items-center gap-11 px-[clamp(1.25rem,2vw,2rem)] min-[960px]:grid-cols-[3.05fr_2fr] min-[960px]:gap-6">
         <div>
           <motion.div
             initial={{ opacity: 0, y: 25 }}
@@ -85,21 +85,49 @@ export default function TourServices1({ data }: TourServices1Props) {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, scale: 0.92 }}
+          initial={{ opacity: 0, scale: 0.94 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.85, ease: [0.22, 1, 0.36, 1] }}
-          className="relative isolate mx-auto aspect-square w-[calc(100%-2rem)] max-w-[550px] min-[960px]:mx-0 min-[960px]:ml-3 min-[960px]:w-[calc(100%-1rem)]"
+          className="relative isolate mx-auto w-full max-w-[480px] min-[960px]:mx-0 min-[960px]:ml-auto min-[960px]:max-w-[530px]"
         >
-          <span aria-hidden="true" className="absolute -top-2 -left-3 -z-10 h-2/5 w-1/2 -rotate-[10deg] rounded-[27%_28%_18%_23%] bg-[#0c694b]" />
-          <span aria-hidden="true" className="absolute -right-2 -bottom-2 -z-10 h-[38%] w-[58%] -rotate-[8deg] rounded-[28%_19%_27%_19%] bg-[#d9a745]" />
-          <div className="relative h-full w-full -rotate-[8deg] overflow-hidden rounded-[20%_11%_18%_13%] border-[clamp(4px,.55vw,8px)] border-white shadow-[0_2px_8px_#12351e33]">
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 160 160"
+            className="pointer-events-none absolute -top-3 -left-3 -z-10 h-[130px] w-[130px] text-(--tour-green) sm:-top-3.5 sm:-left-3.5 sm:h-[150px] sm:w-[150px]"
+            fill="none"
+          >
+            <path
+              d="M150 10 H54 C30 10 10 30 10 54 V150"
+              stroke="currentColor"
+              strokeWidth="19"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 160 110"
+            className="pointer-events-none absolute -right-3 -bottom-3 -z-10 h-[85px] w-[130px] text-[#d9a745] sm:-right-3.5 sm:-bottom-3.5 sm:h-[100px] sm:w-[150px]"
+            fill="none"
+          >
+            <path
+              d="M10 100 H106 C130 100 150 80 150 56 V10"
+              stroke="currentColor"
+              strokeWidth="19"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+
+          <div className="group relative aspect-[500/420] w-full overflow-hidden rounded-[2.35rem] border-[6px] border-white bg-stone-100 shadow-[0_16px_36px_#06433722] sm:rounded-[2.75rem] sm:border-[8px]">
             <Image
               src={data.sideImage || "/banner/london.webp"}
               fill
-              sizes="(max-width: 959px) 85vw, (max-width: 1440px) 40vw, 550px"
+              sizes="(max-width: 959px) 90vw, (max-width: 1440px) 40vw, 540px"
               alt="Big Ben and Westminster Bridge from across the Thames"
-              className="translate-y-[3%] scale-[1.13] rotate-[8deg] object-cover object-top"
+              className="object-cover object-top transition-transform duration-700 motion-safe:group-hover:scale-105"
             />
           </div>
         </motion.div>

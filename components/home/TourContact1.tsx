@@ -56,14 +56,14 @@ export default function TourContact1({ data }: TourContact1Props) {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="min-w-0 lg:pl-[17%]"
+          className="min-w-0"
         >
           <div className="mb-2 flex items-center gap-3 text-xs font-bold tracking-[0.13em] text-[var(--tour-green)] uppercase sm:text-sm">
             <span className="h-px w-9 bg-[var(--tour-gold)]" aria-hidden="true" />
             {data.cursiveText || "Contact Us"}
             <span className="h-px w-9 bg-[var(--tour-gold)]" aria-hidden="true" />
           </div>
-          <h2 className="font-serif text-[clamp(2rem,3.7vw,3.6rem)] leading-[1.08] font-bold tracking-[-0.035em] text-[var(--tour-green)]">
+          <h2 className="font-serif text-[clamp(1.65rem,2.7vw,3.2rem)] leading-[1.1] font-bold tracking-tight text-[var(--tour-green)] whitespace-nowrap">
             {data.headingPart1 || "Get in Touch"}{" "}
             <span className="text-[var(--tour-gold)]">{data.headingPart2 || "With Us"}</span>
           </h2>
@@ -111,7 +111,6 @@ export default function TourContact1({ data }: TourContact1Props) {
                 <Send className="size-[1.15rem]" aria-hidden="true" strokeWidth={1.7} />
                 {data.buttonText || "Send Message"}
               </motion.button>
-              <span className="text-xs text-[#5c6662]">Opens your email app.</span>
             </div>
             <div role="status" className={draftLink ? "text-sm text-[var(--tour-green)]" : "sr-only"}>
               {draftLink && (

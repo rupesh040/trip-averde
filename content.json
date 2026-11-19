@@ -859,7 +859,7 @@
               },
               {
                 "name": "Italy",
-                "href": "#destinations"
+                "href": "#destinations" 
               },
               {
                 "name": "France",
@@ -899,7 +899,7 @@
               "address": "2436 Main Street, Springfield, IL 62704, United States"
             },
             "bottomBar": {
-              "copyright": "© 2026 All Rights Reserved. Powered by Lestow"
+              "copyright": "© 2026 TripAverde. All Rights Reserved."
             },
             "backgroundImage": "/banner/footer-mountains.webp"
           }
